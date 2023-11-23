@@ -1,0 +1,386 @@
+{
+	"id": "80ca35f2-cbc3-4211-8826-6cb75438c183",
+	"name": "Herokuapp",
+	"timestamp": "2023-11-23T11:13:00.875Z",
+	"collection_id": "18486398-ef508a64-faf7-4a3d-9b05-355da338ff15",
+	"folder_id": "18486398-0bbf0329-6126-46ab-9ae7-1c49a4e95f3e",
+	"environment_id": "18486398-fb640824-db10-4820-97dc-0bb81173b7bd",
+	"totalPass": 21,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-11-23T11:12:44.468Z",
+	"totalFail": 21,
+	"results": [
+		{
+			"id": "cc89c4e4-8fa1-4dcb-89dd-b05855b321c8",
+			"name": "Authenticate_POST",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/authenticate",
+			"time": 332,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				371,
+				316,
+				323,
+				366,
+				304,
+				341,
+				332
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "149dce54-7a60-491d-b32b-3b25ffca0a3d",
+			"name": "Task_POST_1",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks",
+			"time": 285,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 7
+				}
+			},
+			"times": [
+				255,
+				226,
+				257,
+				247,
+				590,
+				249,
+				285
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "8b5b0d53-971f-4d27-b570-2bd614df32fa",
+			"name": "Task_POST_2",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks",
+			"time": 315,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 7
+				}
+			},
+			"times": [
+				254,
+				252,
+				247,
+				236,
+				234,
+				261,
+				315
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "52678231-dd5b-4d7f-beb7-e9c06b08bf6f",
+			"name": "Task_POST_3",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks",
+			"time": 255,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 7
+				}
+			},
+			"times": [
+				277,
+				258,
+				246,
+				248,
+				281,
+				242,
+				255
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "29291a27-3992-4d89-affd-0368c018e458",
+			"name": "Task_PUT",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks/3066",
+			"time": 298,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 7,
+					"fail": 0
+				}
+			},
+			"times": [
+				246,
+				268,
+				246,
+				286,
+				257,
+				242,
+				298
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "3ee8841a-f0cd-446c-82c7-04f222608708",
+			"name": "Task_DELETE",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks/3044",
+			"time": 255,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 7,
+					"fail": 0
+				}
+			},
+			"times": [
+				257,
+				248,
+				308,
+				243,
+				260,
+				232,
+				255
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				},
+				{
+					"Status code is 204": true
+				},
+				{
+					"Status code is 204": true
+				},
+				{
+					"Status code is 204": true
+				},
+				{
+					"Status code is 204": true
+				},
+				{
+					"Status code is 204": true
+				},
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "e89287c9-b05e-4f06-a30f-2149f3970f58",
+			"name": "Task_GET",
+			"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks",
+			"time": 85,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 7,
+					"fail": 0
+				}
+			},
+			"times": [
+				101,
+				96,
+				95,
+				85,
+				94,
+				108,
+				85
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 7,
+	"totalTime": 12378,
+	"collection": {
+		"requests": [
+			{
+				"id": "cc89c4e4-8fa1-4dcb-89dd-b05855b321c8",
+				"method": "POST"
+			},
+			{
+				"id": "149dce54-7a60-491d-b32b-3b25ffca0a3d",
+				"method": "POST"
+			},
+			{
+				"id": "8b5b0d53-971f-4d27-b570-2bd614df32fa",
+				"method": "POST"
+			},
+			{
+				"id": "52678231-dd5b-4d7f-beb7-e9c06b08bf6f",
+				"method": "POST"
+			},
+			{
+				"id": "29291a27-3992-4d89-affd-0368c018e458",
+				"method": "PUT"
+			},
+			{
+				"id": "3ee8841a-f0cd-446c-82c7-04f222608708",
+				"method": "DELETE"
+			},
+			{
+				"id": "e89287c9-b05e-4f06-a30f-2149f3970f58",
+				"method": "GET"
+			}
+		]
+	}
+}
