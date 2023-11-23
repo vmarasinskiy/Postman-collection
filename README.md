@@ -1,4 +1,4 @@
 # Postman-collection
 
-[![Build Status](https://travis-ci.com/vmarasinskiy/Postman-collection.svg?branch=CI_CD)](https://travis-ci.com/vmarasinskiy/Postman-collection)
+![example workflow](https://github.com/vmarasinskiy/Postman-collection/tree/CI_CD/.github/workflows/blank.yml/badge.svg)
 
