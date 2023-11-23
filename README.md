@@ -1,4 +1,4 @@
 # Postman-collection
 
-![example workflow](https://github.com/vmarasinskiy/Postman-collection/actions/blank.yml/badge.svg)
+![Postman-collection](https://github.com/vmarasinskiy/Postman-collection/actions/workflows/blank.yml/badge.svg)
 
