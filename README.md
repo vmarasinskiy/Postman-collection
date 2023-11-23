@@ -1,2 +1,3 @@
 # Postman-collection
-[![Build Status](<https://github.com/vmarasinskiy/Postman-collection/actions>)]
+
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
