@@ -732,14 +732,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/tasks/",
+							"raw": "{{baseUrl}}/api/tasks",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"tasks",
-								""
+								"tasks"
 							]
 						}
 					},
@@ -773,30 +772,30 @@
 	],
 	"variable": [
 		{
-			"id": "c4919d9b-c605-4085-a3d1-d8d16f3d3e5b",
+			"id": "bfed76b9-db43-4441-9480-5f2f0d0949c3",
 			"key": "baseUrl",
 			"value": "https://sqlverifier-50d286d70656.herokuapp.com"
 		},
 		{
-			"id": "1e2decde-8ee7-4868-baa4-639006ff9f8b",
+			"id": "e15acb99-7f1a-4b58-95fa-ca624ee6ec8f",
 			"key": "token",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "55e93017-41b0-449d-b25f-23c7590e1940",
+			"id": "1873d5ff-b11c-4629-9273-6dd2656aee7b",
 			"key": "text",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "db0501e5-24ca-412a-854b-820053e6c842",
+			"id": "908497ef-a089-4f65-94c8-1fcd40e6250f",
 			"key": "answer",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6cb7ef6b-e98e-4152-ad76-2f662e4e8e93",
+			"id": "848e9542-34b9-4b18-9103-00e11c717575",
 			"key": "title",
 			"value": "",
 			"type": "string"
