@@ -34,5 +34,5 @@ jobs:
         run: |
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
           postman login --with-api-key ${{secrets.API_KEY}}
-          postman collection run "18486398-ef508a64-faf7-4a3d-9b05-355da338ff15" -e "18486398-fb640824-db10-4820-97dc-0bb81173b7bd"
+          postman collection run "/postman/collections/Herokuapp.json" -e "18486398-fb640824-db10-4820-97dc-0bb81173b7bd"
           
