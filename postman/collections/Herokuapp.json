@@ -1,0 +1,740 @@
+{
+	"info": {
+		"_postman_id": "ef508a64-faf7-4a3d-9b05-355da338ff15",
+		"name": "Herokuapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "18486398-ef508a64-faf7-4a3d-9b05-355da338ff15"
+	},
+	"item": [
+		{
+			"name": "Positive register",
+			"item": [
+				{
+					"name": "Authenticate_POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37fd30d2-c438-42d3-95f0-55577c552735",
+								"exec": [
+									"var token = pm.response.json().id_token\r",
+									"pm.collectionVariables.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "5753f6ef-5c87-4005-83f7-fff8217a5446",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"690-280-0125\",\r\n  \"password\": \"Test!12!\",\r\n  \"rememberMe\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register_POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e68a04e4-7f36-45b9-ba6b-0eb6dae70298",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "3bba05a3-5be4-4245-847d-01421fec493c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"{{$randomPhoneNumber}}\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2024-11-17T06:34:51.635Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2024-11-17T06:34:51.635Z\",\r\n  \"authorities\": [\r\n    \"ROLE_USER_STUDENT\"\r\n  ],\r\n  \"password\": \"Test!12!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activated_PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b82e51ce-1804-44a7-bb0f-33f4b755b088",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "1be2bdca-92ce-4c37-9b57-41c64930c6ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2351,\r\n    \"login\": \"690-280-0125\",\r\n    \"firstName\": \"Preston\",\r\n    \"lastName\": \"Prosacco\",\r\n    \"email\": \"camille_bailey82@yahoo.com\",\r\n    \"imageUrl\": \"string\",\r\n    \"activated\": true,\r\n    \"langKey\": \"string\",\r\n    \"createdBy\": \"anonymousUser\",\r\n    \"createdDate\": \"2023-11-20T06:22:38.137644Z\",\r\n    \"lastModifiedBy\": \"admin\",\r\n    \"lastModifiedDate\": \"2023-11-20T06:24:23.825553Z\",\r\n    \"authorities\": [\r\n        \"ROLE_USER_STUDENT\"\r\n    ]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account_GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d707d030-6a67-48d5-8e02-2641266c12f9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "25e861e7-5b57-4bca-b3a9-b03f71f990cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/account",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "1099340e-dc6a-4e24-993d-629d25713e79"
+		},
+		{
+			"name": "Negative register",
+			"item": [
+				{
+					"name": "Register_POST_1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "381b1d2a-c895-4b57-8615-bcd19f63bc2e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"const response = pm.response.json()\r",
+									"\r",
+									"console.log(response)\r",
+									"\r",
+									"pm.test(\"Status returne as Bad Request\", () => {\r",
+									"    pm.expect(response.status).to.eql(\"Ok\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "33701538-ffa8-4c5c-9c4c-c892a1b73e10",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2351,\r\n    \"login\": \"690-280-0125\",\r\n    \"firstName\": \"Preston\",\r\n    \"lastName\": \"Prosacco\",\r\n    \"email\": \"camille_bailey82@yahoo.com\",\r\n    \"imageUrl\": \"string\",\r\n    \"activated\": true,\r\n    \"langKey\": \"string\",\r\n    \"createdBy\": \"anonymousUser\",\r\n    \"createdDate\": \"2023-11-20T06:22:38.137644Z\",\r\n    \"lastModifiedBy\": \"admin\",\r\n    \"lastModifiedDate\": \"2023-11-20T06:24:23.825553Z\",\r\n    \"authorities\": [\r\n        \"ROLE_USER_STUDENT\"\r\n    ]\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register_POST_2",
+					"id": "6b55f92b-d0bb-4625-a9f8-89cfa83906c3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"\",\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"M\",\r\n  \"email\": \"\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2024-11-17T06:34:51.635Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2024-11-17T06:34:51.635Z\",\r\n  \"authorities\": [\r\n    \"string\"\r\n  ],\r\n  \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register_POST_3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d993f6a-4f99-473c-addf-4a7b6560bd50",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "048fdd51-a188-4f71-9cde-5f1ad75e521c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"{{$randomPhoneNumber}}\",\r\n  \"firstName\": \"{{$randomFirstName}}\",\r\n  \"lastName\": \"{{$randomLastName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2999-11-17T06:34:51.635Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2999-11-17T06:34:51.635Z\",\r\n  \"authorities\": [\r\n    \"ROLE_USER_STUDENT\"\r\n  ],\r\n  \"password\": \"Test!12!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "39733ac0-79ec-407b-b270-7e207bee39b9"
+		},
+		{
+			"name": "Positive Task",
+			"item": [
+				{
+					"name": "Task_POST_1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9fe05a6d-4d09-4f60-86d6-88d76873e1c5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "149dce54-7a60-491d-b32b-3b25ffca0a3d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"text\": \"{{$randomStreetName}}\",\r\n  \"answer\": \"{{$randomStreetName}}\",\r\n  \"title\": \"{{$randomStreetName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task_POST_2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "731b081c-3c55-46fb-95c5-165c173c7085",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8b5b0d53-971f-4d27-b570-2bd614df32fa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"text\": \"{{$randomStreetName}}\",\r\n  \"answer\": \"{{$randomStreetName}}\",\r\n  \"title\": \"{{$randomStreetName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task_POST_3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a537719-8d05-4c17-aaa4-d579d033c15e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "52678231-dd5b-4d7f-beb7-e9c06b08bf6f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"text\": \"h\",\r\n  \"answer\": \"h\",\r\n  \"title\": \"h\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task_PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fc0593a6-d68f-45ca-af40-f7c8deca8221",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "29291a27-3992-4d89-affd-0368c018e458",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 3066,\r\n  \"text\": \"Hi\",\r\n  \"answer\": \"Hi\",\r\n  \"title\": \"Hi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tasks/3066",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"3066"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task_DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc680d90-7cc5-42c2-960a-7f098520adc9",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "3ee8841a-f0cd-446c-82c7-04f222608708",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 3402,\r\n  \"text\": \"Hi\",\r\n  \"answer\": \"Hi\",\r\n  \"title\": \"Hi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tasks/{id}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task_GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f59af963-a235-4ce9-a015-ff8a8d943dfc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "e89287c9-b05e-4f06-a30f-2149f3970f58",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tasks/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "0bbf0329-6126-46ab-9ae7-1c49a4e95f3e"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2e2bc0a0-9c27-499b-a140-827d10cfede3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d9e0d04c-e4ab-4540-ba60-1ca9173554fc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b082b70e-a169-4c74-a589-2abf06d30db0",
+			"key": "baseUrl",
+			"value": "https://sqlverifier-50d286d70656.herokuapp.com"
+		},
+		{
+			"id": "e3c42df3-2971-4f8e-801c-c2268f227295",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
