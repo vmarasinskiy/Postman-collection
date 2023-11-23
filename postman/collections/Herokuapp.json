@@ -366,6 +366,53 @@
 			"name": "Positive Task",
 			"item": [
 				{
+					"name": "Authenticate_POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37fd30d2-c438-42d3-95f0-55577c552735",
+								"exec": [
+									"var token = pm.response.json().id_token\r",
+									"pm.collectionVariables.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "cc89c4e4-8fa1-4dcb-89dd-b05855b321c8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"vmarasinskiy\",\r\n  \"password\": \"qwerty123!\",\r\n  \"rememberMe\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Task_POST_1",
 					"event": [
 						{
@@ -621,7 +668,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 3402,\r\n  \"text\": \"Hi\",\r\n  \"answer\": \"Hi\",\r\n  \"title\": \"Hi\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -629,14 +676,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/tasks/{id}",
+							"raw": "{{baseUrl}}/api/tasks/3044",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"tasks",
-								"{id}"
+								"3044"
 							]
 						}
 					},
@@ -706,7 +753,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2e2bc0a0-9c27-499b-a140-827d10cfede3",
+				"id": "c2079adc-1c49-4f6c-8da7-712ed6755f6c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -716,7 +763,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d9e0d04c-e4ab-4540-ba60-1ca9173554fc",
+				"id": "858e6912-a640-4221-b349-68c0c622e6d9",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -726,13 +773,31 @@
 	],
 	"variable": [
 		{
-			"id": "b082b70e-a169-4c74-a589-2abf06d30db0",
+			"id": "c4919d9b-c605-4085-a3d1-d8d16f3d3e5b",
 			"key": "baseUrl",
 			"value": "https://sqlverifier-50d286d70656.herokuapp.com"
 		},
 		{
-			"id": "e3c42df3-2971-4f8e-801c-c2268f227295",
+			"id": "1e2decde-8ee7-4868-baa4-639006ff9f8b",
 			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "55e93017-41b0-449d-b25f-23c7590e1940",
+			"key": "text",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "db0501e5-24ca-412a-854b-820053e6c842",
+			"key": "answer",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "6cb7ef6b-e98e-4152-ad76-2f662e4e8e93",
+			"key": "title",
 			"value": "",
 			"type": "string"
 		}
