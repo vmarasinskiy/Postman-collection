@@ -22,3 +22,17 @@ jobs:
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
           postman login --with-api-key ${{ secrets.API_KEY }}
           postman collection run "postman/collections/Herokuapp.json" -e "m_e.json"
+
+          run-collection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Run Postman Collection
+        env: 
+          POSTMAN_API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          ~/.postman/bin/postman collection run "postman/collections/Herokuapp.json" --environment="postman/environments/m_e.json" --global-var "apiKey=$POSTMAN_API_KEY"
+
