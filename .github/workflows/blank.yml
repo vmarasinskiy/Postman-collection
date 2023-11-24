@@ -3,7 +3,10 @@
 name: CI
 
 # Controls when the workflow will run
+name: Weekly Team Sync
 on:
+schedule:
+- cron: 00 00 * * *
   # Triggers the workflow on push or pull request events but only for the "CI_CD" branch
   push:
     branches: [ "CI_CD" ]
@@ -36,8 +39,6 @@ jobs:
           postman login --with-api-key ${{secrets.API_KEY}}
           postman collection run "postman/collections/Herokuapp.json" -e "m_e.json"
 
-        name: Weekly Team Sync
-          on:
-          schedule:
-          - cron: 00 00 * * *
+      
+
           
