@@ -3,10 +3,8 @@
 name: CI
 
 # Controls when the workflow will run
-# name: Weekly Team Sync
 on:
-schedule:
-- cron: 00 00 * * *
+
   # Triggers the workflow on push or pull request events but only for the "CI_CD" branch
   push:
     branches: [ "CI_CD" ]
@@ -38,6 +36,31 @@ jobs:
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
           postman login --with-api-key ${{secrets.API_KEY}}
           postman collection run "postman/collections/Herokuapp.json" -e "m_e.json"
+
+      name: Run Postman Collection
+
+      on:
+      schedule:
+      # Runs every day at midnight
+      - cron: '0 0 * * *'
+        jobs:
+      run-collection:
+        runs-on: ubuntu-latest
+        steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Исполняет несколько команд через shell исполнителя
+        - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      
+      # Задать пароль переменную окружения для Postman CLI и выполнить коллекцию
+        - name: Run Postman Collection
+        env: 
+          POSTMAN_API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          ~/.postman/bin/postman collection run "postman/collections/Herokuapp.json" --environment="postman/environments/m_e.json" --global-var "apiKey=$POSTMAN_API_KEY"
 
       
 
